@@ -6,23 +6,23 @@ This code pattern will demonstrate a data scientist's journey in creating a mach
 
 ## Flow
 
-![architecture](docs/source/images/architecture.png)
+![architecture](.gitbook/assets/architecture.png)
 
 1. Create a Watson Studio Project on IBM Cloud.
-1. IBM DB2 on Cloud database stores information that will be used for machine learning and predictions.
-1. Watson Machine Learning helps to create ML models so that new predictions can be run against the model.
-1. Jupyter notebook uses IBM Db2 on Cloud and Watson Machine Learning to create the machine learning model.
-1. The model is exposed through an API
-1. Angular UI uses the API to send new data for predictions
+2. IBM DB2 on Cloud database stores information that will be used for machine learning and predictions.
+3. Watson Machine Learning helps to create ML models so that new predictions can be run against the model.
+4. Jupyter notebook uses IBM Db2 on Cloud and Watson Machine Learning to create the machine learning model.
+5. The model is exposed through an API
+6. Angular UI uses the API to send new data for predictions
 
 ## Steps
 
-1. [Clone the repo](#1-clone-the-repo)
-2. [Create an IBM Cloud account](#2-create-an-ibm-cloud-account)
-3. [Load data into IBM Db2 on Cloud](#3-load-data-into-ibm-db2-on-cloud)
-4. [Setup Watson studio project](#4-setup-watson-studio-project)
-5. [Creating and deploying a machine learning model](#5-creating-and-deploying-a-machine-learning-model)
-6. [Testing using UI](#5-testing-using-ui)
+1. [Clone the repo](./#1-clone-the-repo)
+2. [Create an IBM Cloud account](./#2-create-an-ibm-cloud-account)
+3. [Load data into IBM Db2 on Cloud](./#3-load-data-into-ibm-db2-on-cloud)
+4. [Setup Watson studio project](./#4-setup-watson-studio-project)
+5. [Creating and deploying a machine learning model](./#5-creating-and-deploying-a-machine-learning-model)
+6. [Testing using UI](./#5-testing-using-ui)
 
 ### 1. Clone the repo
 
@@ -44,28 +44,28 @@ Creating this account will give us access to `Db2 on Cloud` and `Watson Studio` 
 
 Now that we have created our IBM Cloud account. We need to create a Db2 on Cloud service. Once we have create that, we will then we able to load our data into our database.
 
-1. [Create Db2 on Cloud Service](#3a-create-db2-on-cloud-service)
-2. [Load Data into Db2 on Cloud](#3b-load-data-into-db2-on-cloud)
+1. [Create Db2 on Cloud Service](./#3a-create-db2-on-cloud-service)
+2. [Load Data into Db2 on Cloud](./#3b-load-data-into-db2-on-cloud)
 
 #### 3a. Create Db2 on Cloud Service
 
 Go to the [dashboard](https://cloud.ibm.com) of your IBM Cloud account and follow the steps to create your Db2 On Cloud service.
 
-![Searching For Db2 Service](docs/source/images/img-2.png)
+![Searching For Db2 Service](.gitbook/assets/img-2.png)
 
 * In the search bar at the top of your dashboard, search `Db2`.
 * Although there are different database options to choose from, for the purposes of this tutorial we will be using the `Db2` option. Click `Db2` when that option appears in the search bar.
 
-![Creating Db2 Service](docs/source/images/img-1.png)
+![Creating Db2 Service](.gitbook/assets/img-1.png)
 
 * For the service name, enter in `Data-Science-Track`.
 * Make sure you pick the region that is closest to where you currently reside.
 * Scroll down to the `Pricing Plan` section and choose the `Lite` plan.
 * Click `Create`
 
->NOTE: You will be only able to create one instance per account.
+> NOTE: You will be only able to create one instance per account.
 
-Once you have created your database instance, we can go back to the dashboard and click on the `View Resources` link under the `Resource Summary` section. You should then be able to see and verify that your Db2 instance has been created under the `Cloud Foundry Services` tab.  
+Once you have created your database instance, we can go back to the dashboard and click on the `View Resources` link under the `Resource Summary` section. You should then be able to see and verify that your Db2 instance has been created under the `Cloud Foundry Services` tab.
 
 #### 3b. Load Data into Db2 on Cloud
 
@@ -73,14 +73,14 @@ Go to the dashboard of your IBM Cloud account and follow the steps to load your 
 
 * In the search bar, search `Data-Science-Track` and click on your Db2 on Cloud service
 
-![Loading File](docs/source/images/img-3.png)
+![Loading File](.gitbook/assets/img-3.png)
 
 * Click on `Open Console` which will direct you to the Db2 on Cloud Console.
 * Click on `Load` under the Hamburger menu.
 * Click on `browse files` and select `home-sales-training-data.csv` from your computer.
 * Click `Next`.
 
-![Create Table](docs/source/images/img-4.png)
+![Create Table](.gitbook/assets/img-4.png)
 
 * The next step is to decide where our data will be stored. Click on the first schema that shows up, then select `New Table`.
 * Enter `HOME_SALES` as our table name and select `Create` and finally `Next`.
@@ -93,16 +93,16 @@ Once the job has been completed, our data has finally been loaded into our datab
 
 Setting up our project enivorment can be broken down in the follow steps.
 
-1. [Get Db2 on Cloud credentials](#4a-get-db2-on-cloud-credentials)
-2. [Creating Watson Studio service](#4b-creating-watson-studio-service)
-3. [Creating a Watson Studio project](#4c-creating-a-watson-studio-project)
-4. [Connect Db2 on Cloud with Watson Studio](#4d-connect-db2-on-cloud-with-watson-studio)
+1. [Get Db2 on Cloud credentials](./#4a-get-db2-on-cloud-credentials)
+2. [Creating Watson Studio service](./#4b-creating-watson-studio-service)
+3. [Creating a Watson Studio project](./#4c-creating-a-watson-studio-project)
+4. [Connect Db2 on Cloud with Watson Studio](./#4d-connect-db2-on-cloud-with-watson-studio)
 
 #### 4a. Get Db2 on Cloud credentials
 
 Before we create a Watson Studio service, we need to first create credentials for our database so that Watson Studio can connect to it.
 
-![Db2 On Cloud Credentials](docs/source/images/img-5.png)
+![Db2 On Cloud Credentials](.gitbook/assets/img-5.png)
 
 * In the search bar, search `Data-Science-Track` and click on your Db2 on Cloud service
 * Click on `Service Credentials` on the left hand side.
@@ -119,7 +119,7 @@ The key information that is important for us is:
 
 * Go to Catalog and search for  `Watson Studio` and click on that option.
 
-![Creating Watson Studio Service](docs/source/images/img-6.png)
+![Creating Watson Studio Service](.gitbook/assets/img-6.png)
 
 * Fill out all the fields and choose 'Lite' plan.
 * Click `Create` and then `Get Started`.
@@ -130,7 +130,7 @@ This will redirect you to the Watson Studio homepage.
 
 Let's now create and setup our project.
 
-![Creating Project](docs/source/images/img-7.png)
+![Creating Project](.gitbook/assets/img-7.png)
 
 * Select `Create a Project` and then select `Standard`.
 * If you haven't created object storage earlier, go to the bottom of the page and click the link `Cloud Object Storage`. Choose the `Lite` plan and click `Create`.
@@ -144,7 +144,7 @@ This will take you to your project dashboard/homepage.
 * On the top of the project homepage, select `Add to project` and then click `Connection`.
 * Select  `Db2` connection opton.
 
-![Connection Database](docs/source/images/img-8.png)
+![Connection Database](.gitbook/assets/img-8.png)
 
 * This will take you to a connection configuration page. Here, we will enter the Db2 credentials that we got from Step 4a. Make sure to use `50000` for the `Port` option.
 * Click `Create` once you have entered all the required information.
@@ -156,7 +156,7 @@ Now that we have our database connected to our project, we need to also connect 
 * On the top of the project homepage, select `Add to project` and then click `Connected data`.
 * Select `Select Source`.
 
-![Connecting Data](docs/source/images/img-9.png)
+![Connecting Data](.gitbook/assets/img-9.png)
 
 * Select our database, scheme and finally our table `HOME_SALES`.
 * Click `Select`.
@@ -168,11 +168,12 @@ We have finally created our Watson Studio service. Within that, created a projec
 
 * On the top of the project homepage, select `Add to project` and then click `Notebook`.
 
-![Creating Notebook](docs/source/images/img-10.png)
+![Creating Notebook](.gitbook/assets/img-10.png)
 
 * Fill out the notebook details
 * Select `From URL` option from the tab and paste the following link to Notebook URL field:
-`https://raw.githubusercontent.com/IBM/predict-home-value-using-watson-machine-learning-and-db2/master/notebooks/WML%20DB2.ipynb`
+
+  `https://raw.githubusercontent.com/IBM/predict-home-value-using-watson-machine-learning-and-db2/master/notebooks/WML%20DB2.ipynb`
 
 Before we run the notebook, we need to create `Watson Machine Learning` instance so that we can deploy the model to Watson Machine Learning on IBM Cloud. Here are the steps:
 
@@ -180,19 +181,19 @@ Before we run the notebook, we need to create `Watson Machine Learning` instance
 * Search for `machine learning` and select `Machine Learning` service
 * Fill out the details, select `Lite` plan and click `Create`.
 
-![Create WML service](docs/source/images/img-10b.png)
+![Create WML service](.gitbook/assets/img-10b.png)
 
 * And finally Create `Service Credentials` as shown below
 
-![Create Credentials](docs/source/images/img-10c.png)
+![Create Credentials](.gitbook/assets/img-10c.png)
 
 In the notebook, after the `import` cell, add cell to create connection as shown below.
 
-![Add Db2 Connections](docs/source/images/img-9a.png)
+![Add Db2 Connections](.gitbook/assets/img-9a.png)
 
 Add Watson Machine Learning service credentials that you have saved from above, at step 5 of the notebook as shown below.
 
-![Add WML Creds](docs/source/images/img-10a.png)
+![Add WML Creds](.gitbook/assets/img-10a.png)
 
 Then, run all the cells. At the end of the run the model will be deployed using Watson Machine Learning on IBM Cloud so that you could use the same model to predict home value using an API exposed through Watson Machine Learning service.
 
@@ -203,17 +204,13 @@ Then, run all the cells. At the end of the run the model will be deployed using 
 `https://github.com/IBM/crud-using-nodejs-and-db2`
 
 * Replace the value of `GO_DB2_API: 'https://<url>',` in `src/enviornments/enviornment.ts` with the API URL of your go server whcih would be `http://localhost:8080/predict`
-
 * Click `Predict` from the navigation bar on top right.
-
 * Fill out the details, Choose `Predict using Watson Machine Learning` in Predict Options and click `Submit`.
-
 * Analyze the prediction result.
 
-![Testing](docs/source/images/test-1.png)
+![Testing](.gitbook/assets/test-1.png)
 
-![Testing](docs/source/images/test-1a.png)
-
+![Testing](.gitbook/assets/test-1a.png)
 
 ## Learn more
 
@@ -224,3 +221,8 @@ Then, run all the cells. At the end of the run the model will be deployed using 
 This code pattern is licensed under the Apache License, Version 2. Separate third-party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1](https://developercertificate.org/) and the [Apache License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 [Apache License FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
+
+
+
+Presented by Sbusiso Mkhombe: Sbusiso.Mkhombe@ibm.com
+
