@@ -26,7 +26,7 @@ This code pattern will demonstrate a data scientist's journey in creating a mach
 
 ### 1. Clone the repo
 
-Before we start anything, we need to clone the repo. The repo has our dataset and python notebook which we will use when creating our model.
+Before we start anything, we need to clone the repo. The repo has our data set and python notebook which we will use when creating our model.
 
 ```bash
 git clone https://github.com/IBM/predict-home-value-using-watson-machine-learning-and-db2.git
@@ -82,16 +82,16 @@ Go to the dashboard of your IBM Cloud account and follow the steps to load your 
 
 ![Create Table](.gitbook/assets/img-4.png)
 
-* The next step is to decide where our data will be stored. Click on the first schema that shows up, then select `New Table`.
+* The next step is to decide where our data will be stored. Click on the first schema that matches your username, then select `New Table`.
 * Enter `HOME_SALES` as our table name and select `Create` and finally `Next`.
-* Make sure the column names and datatypes are correct, and click `Next`.
+* Make sure the column names and data types are correct, and click `Next`.
 * Click `Begin Load`.
 
 Once the job has been completed, our data has finally been loaded into our database.
 
 ### 4. Setup Watson Studio project
 
-Setting up our project enivorment can be broken down in the follow steps.
+Setting up our project environment can be broken down in the follow steps.
 
 1. [Get Db2 on Cloud credentials](./#4a-get-db2-on-cloud-credentials)
 2. [Creating Watson Studio service](./#4b-creating-watson-studio-service)
@@ -142,7 +142,7 @@ This will take you to your project dashboard/homepage.
 #### 4d. Connect Db2 on Cloud with Watson Studio
 
 * On the top of the project homepage, select `Add to project` and then click `Connection`.
-* Select  `Db2` connection opton.
+* Select  `Db2` connection option.
 
 ![Connection Database](.gitbook/assets/img-8.png)
 
